@@ -21,5 +21,7 @@ Team should choose who merges Pull requests: code writer or the reviewer.
 
 Style guides
 
+	class name for html elements reflect their functionality
+
 [AirBnB Ruby Styleguide](https://github.com/airbnb/ruby)
 [AirBnB JavaScript Styleguide](https://github.com/airbnb/javascript)
