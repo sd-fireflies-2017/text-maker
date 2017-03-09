@@ -7,6 +7,8 @@ class User < ApplicationRecord
  	has_many :teams
  	has_many :games, through: :teams
  	has_many :rosters, through: :teams
+
+ 	# validates_presence_of 
  	
 
 end
