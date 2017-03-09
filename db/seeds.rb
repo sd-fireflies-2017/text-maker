@@ -5,5 +5,46 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-user = CreateAdminService.new.call
-puts 'CREATED ADMIN USER: ' << user.email
+User.delete_all
+Team.delete_all
+Game.delete_all
+Player.delete_all
+Roster.delete_all
+# user = CreateAdminService.new.call
+# puts 'CREATED ADMIN USER: ' << user.email
+
+
+2.times {User.create!(name: Faker::StarWars.character,
+											email: Faker::Internet.email,
+											password: "password",	
+											password_confirmation: "password")
+}
+
+2.times {User.create!(name: Faker::HarryPotter.character,
+											email: Faker::Internet.email,
+											password: "password",
+											password_confirmation: "password")
+}
+
+7.times {Team.create!(name: Faker::Team.name, 
+											sport_type: Faker::Team.sport,
+											league_name: Faker::Team.creature,
+											user_id: [1,2,3,4].sample)
+
+
+}
+
+23.times {Game.create!(location: Faker::GameOfThrones.city,
+												time: Faker::Time.forward(23, :morning),
+												home_team: Faker::Boolean.boolean(0.2),
+												opposing_team: Faker::Educator.university,
+												team_id: rand(1..7)
+)}
+
+77.times {Player.create!(name: Faker::Name.name,
+													phone_number: Faker::PhoneNumber.cell_phone)
+}
+
+77.times {Roster.create!(team_id: rand(1..7),
+													player_id: rand(1..77))
+}
