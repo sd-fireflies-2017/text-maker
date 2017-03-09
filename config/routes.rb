@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  root to: 'visitors#index'
+  
   devise_for :users
+
+  root to: 'visitors#index'
+  
   resources :users
 
   resources :players
@@ -9,4 +12,5 @@ Rails.application.routes.draw do
   	resources :games
   	resources :players
   end
+  
 end
