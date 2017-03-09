@@ -1,3 +1,12 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: 'visitors#index'
+  devise_for :users
+  resources :users
+
+  resources :players
+
+  resources :teams do 
+  	resources :games
+  	resources :players
+  end
 end

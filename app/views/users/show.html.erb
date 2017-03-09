@@ -1,0 +1,35 @@
+<div class="content">
+
+	<h1>Hi, <%= current_user.username %></h1>
+
+	<button class="new-team-btn">
+		<%= link_to "Add a New Team", new_team_path %>
+	</button>
+
+	<div class="teams-list-container">
+		<h2>Your Teams:</h2>
+		<ul>
+			<% current_user.teams.each do |team| %>
+				<li>
+					<%= link_to team.name, team %>
+					<%= link_to "Add players", new_team_player_path(team) %>
+					<%= link_to "Add games", new_team_game_path(team) %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+
+	<div class="upcoming-games-container">
+		<h2>Upcoming Games:</h2>
+		<ul>
+			<%= current_user.upcoming_games.each do |game| %>
+				<li>
+					<%= link_to game.name, team_game_path(game.team, game) %>
+					<p><%= game.location %></p>
+					<p><%= game.time %></p>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+
+</div>
