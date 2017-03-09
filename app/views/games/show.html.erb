@@ -6,31 +6,35 @@
 		<li><%= @game.time %></li>
 	</ul>
 
-	<h2>Confirmed Players:</h2>
+	<h2>Confirmed Players (<%= @game.confirmed_players.count %>)</h2>
 	<ul>
-		<%= @game.confirmed_players.each do |player| %>
+		<% @game.confirmed_players.each do |player| %>
 			<li>
 				<%= link_to player.name, player %>
+				<%= link_to "Change to declined", "/games/#{@game.id}/players/#{player.id}/decline" %>
 			</li>
 		<% end %>
 	</ul>
-	
-	<h2>Unconfirmed Players:</h2>
+
+	<h2>Unconfirmed Players (<%= @game.players_without_confirmations.count %>)</h2>
 	<ul>
-		<#%= @game.players_without_confirmation_records.each do |player| %>
+		<% @game.players_without_confirmations.each do |player| %>
 			<li>
-				<#%= link_to player.name, player %>
+				<%= link_to player.name, player %>
+				<%= link_to "Change to confirmed", "/games/#{@game.id}/players/#{player.id}/confirm" %>
+				<%= link_to "Change to declined", "/games/#{@game.id}/players/#{player.id}/decline" %>
 			</li>
-		<#% end %>
+		<% end %>
 	</ul>
 
-	<h2>Declined Players:</h2>
+	<h2>Declined Players (<%= @game.declined_players.count %>)</h2>
 	<ul>
-		<#%= @game.declined_players.each do |player| %>
+		<% @game.declined_players.each do |player| %>
 			<li>
-				<#%= link_to player.name, player %>
+				<%= link_to player.name, player %>
+				<%= link_to "Change to confirmed", "/games/#{@game.id}/players/#{player.id}/confirm" %>
 			</li>
-		<#% end %>
+		<% end %>
 	</ul>
 
 

@@ -24,7 +24,7 @@
 		<ul>
 			<% @team.games.each do |game| %>
 				<li>
-					<%= link_to game.name, game %>
+					<%= link_to game.name, team_game_path(game) %>
 					<p><%= game.location %></p>
 					<p><%= game.time %></p>
 				</li>
