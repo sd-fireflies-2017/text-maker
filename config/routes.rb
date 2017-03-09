@@ -6,9 +6,15 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :delete]
   resources :players
 
+  resources :games, only: [:index]
+  resources :rosters, only: [:create]
+
+  get "/games/:game_id/players/:player_id/decline", to: 'players#decline'
+  get "/games/:game_id/players/:player_id/confirm", to: 'players#confirm'
+
   resources :teams do
   	resources :games
   	resources :players
   end
-  
+
 end

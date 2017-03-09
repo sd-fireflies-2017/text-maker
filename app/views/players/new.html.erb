@@ -7,14 +7,22 @@
 		<%= f.label :name %>
 		<%= f.text_field :name %>
 
-		<%= f.label :phone_number %>
-		<%= f.text_field :phone_number %>
+		<%= f.label :phone_number_with_area_code %>
+    <%= f.text_field :phone_number %>
 
-		<%= f.select :team, Game.all.collect { |g| [ g.name, g.id ] }, include_blank: true %>
+		<%= f.select :team_ids, current_user.teams.collect { |g| [ g.name, g.id ] }, include_blank: true %>
 
 		<%= f.submit "Add Player" %>
 
 	<% end %>
+------------------------------------------------------------------
+  <%= form_for Roster.new do |f| %>
+
+    <%= f.select :player_id, (current_user.players - @team.players).collect { |p| [ p.name, p.id ] }, include_blank: true %>
+
+    <%= f.submit "Add Player" %>
+
+  <% end %>
 
 
 </div>
