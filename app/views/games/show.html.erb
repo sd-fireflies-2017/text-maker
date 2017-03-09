@@ -1,0 +1,37 @@
+<div class="content">
+
+	<h1><%= @game.name %></h1>
+	<ul>
+		<li><%= @game.location %></li>
+		<li><%= @game.time %></li>
+	</ul>
+
+	<h2>Confirmed Players:</h2>
+	<ul>
+		<%= @game.confirmed_players.each do |player| %>
+			<li>
+				<%= link_to player.name, player %>
+			</li>
+		<% end %>
+	</ul>
+	
+	<h2>Unconfirmed Players:</h2>
+	<ul>
+		<#%= @game.players_without_confirmation_records.each do |player| %>
+			<li>
+				<#%= link_to player.name, player %>
+			</li>
+		<#% end %>
+	</ul>
+
+	<h2>Declined Players:</h2>
+	<ul>
+		<#%= @game.declined_players.each do |player| %>
+			<li>
+				<#%= link_to player.name, player %>
+			</li>
+		<#% end %>
+	</ul>
+
+
+</div>

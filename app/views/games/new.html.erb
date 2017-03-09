@@ -1,0 +1,25 @@
+<div class="content">
+
+	<h1>Add a new Game for <%= @team %></h1>
+
+	<%= form_for [@team, @game] do |f| %>
+
+		<%= f.label :location %>
+		<%= f.text_field :location %>
+
+		<%= f.label :date %>
+		<%= f.date_select(:date, :order => [:month, :day, :year]) %>
+
+		<%= f.label :time %>
+		<%= f.datetime_select :start_datetime, :ampm => true, :minute_step => 15 %>
+
+		<%= f.check_box :home_team %>
+
+		<%= f.label :opposing_team %>
+		<%= f.text_field :opposing_team %>
+
+		<%= f.submit "Submit" %>
+
+	<% end %> 
+
+</div>
