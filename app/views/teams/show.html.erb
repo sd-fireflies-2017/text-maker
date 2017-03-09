@@ -11,4 +11,28 @@
 		<%= link_to "Add Game for Team", new_team_game_path(@team) %>
 	</button>
 
+	<div class="players-list-container">
+		<h2>Players</h2>
+		<ul>
+		<% @team.players.each do |player| %>
+			<li>
+				<%= link_to player.name, player %>
+				<%= link_to "Remove", "DELETE ROSTER" %>
+			</li>
+		<% end %>
+		</ul>
+	</div>
+
+	<div class="games-list-container">
+		<h2>Games</h2>
+		<ul>
+			<% @team.games.each do |game| %>
+				<li>
+					<%= link_to game.name, game %>
+					<p><%= game.location %></p>
+					<p><%= game.time %></p>
+				</li>
+			<% end %> 
+		</ul>
+	</div>
 </div>
