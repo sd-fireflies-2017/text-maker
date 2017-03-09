@@ -1,0 +1,20 @@
+<div class="content">
+
+	<h1>Add a Player</h1>
+
+	<%= form_for @player do |f| %>
+
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+
+		<%= f.label :phone_number %>
+		<%= f.text_field :phone_number %>
+
+		<%= f.select :team, Game.all.collect { |g| [ g.name, g.id ] }, include_blank: true %>
+
+		<%= f.submit "Add Player" %>
+
+	<% end %>
+
+
+</div>

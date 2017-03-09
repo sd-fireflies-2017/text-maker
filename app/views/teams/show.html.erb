@@ -3,13 +3,9 @@
 	<h1><%= @team.name %></h1>
 
 
-	<button class="add-player-btn">
 		<%= link_to "Add Player to Team", new_team_player_path(@team) %>
-	</button>
 
-	<button class="add-game-btn">
 		<%= link_to "Add Game for Team", new_team_game_path(@team) %>
-	</button>
 
 	<div class="players-list-container">
 		<h2>Players</h2>

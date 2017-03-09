@@ -4,11 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
- 	has_many :teams
- 	has_many :games, through: :teams
- 	has_many :rosters, through: :teams
+  has_many :teams
+  has_many :games, through: :teams
+  has_many :players, through: :teams
 
- 	# validates_presence_of 
- 	
 
 end
