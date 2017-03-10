@@ -19,6 +19,19 @@ class PlayersController < ApplicationController
     @player = Player.find_by(id: params[:id])
   end
 
+  def edit
+    @player = Player.find_by(id: params[:id])
+  end
+
+  def update
+    @player = Player.find_by(id: params[:id])
+    if @player.update(player_params)
+      redirect_to @player
+    else
+      render :edit
+    end
+  end
+
   def decline
     @game = Game.find_by(id: params[:game_id])
     @confirmation = Confirmation.find_or_initialize_by(player_id: params[:player_id], game_id: params[:game_id])

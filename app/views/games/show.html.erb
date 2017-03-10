@@ -3,10 +3,10 @@
 	<h1><%= @game.name %></h1>
 	<ul>
 		<li><%= @game.location %></li>
-		<li><%= @game.time %></li>
+		<li><%= @game.clean_time %></li>
 	</ul>
 
-	<h2>Confirmed Players <%= @game.confirmed_players.count %> / <%= @game.players_required %></h2>
+	<h4>Confirmed Players <%= @game.confirmed_players.count %> / <%= @game.players_required %></h2>
 	<ul>
 		<% @game.confirmed_players.each do |player| %>
 			<li>
@@ -16,7 +16,7 @@
 		<% end %>
 	</ul>
 
-	<h2>Unconfirmed Players (<%= @game.players_without_confirmations.count %>)</h2>
+	<h4>Unconfirmed Players (<%= @game.players_without_confirmations.count %>)</h2>
 	<ul>
 		<% @game.players_without_confirmations.each do |player| %>
 			<li>
@@ -27,7 +27,7 @@
 		<% end %>
 	</ul>
 
-	<h2>Declined Players (<%= @game.declined_players.count %>)</h2>
+	<h4>Declined Players (<%= @game.declined_players.count %>)</h2>
 	<ul>
 		<% @game.declined_players.each do |player| %>
 			<li>

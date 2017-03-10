@@ -48,5 +48,9 @@ class Game < ApplicationRecord
     confirmed_players.count >= players_required
   end
 
+  def clean_time
+    time.strftime("%l:%M%P %A, %b %e")
+  end
+
 
 end

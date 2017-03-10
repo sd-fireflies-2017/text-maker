@@ -18,6 +18,11 @@ label{
   margin-top: 10px;
 }
 
+p{
+  margin:2px;
+  border-bottom: .2px solid blue;
+}
+
 .new-team-btn, .view-games-btn{
   padding: 5px;
   /*border: 2px solid black;*/
@@ -50,18 +55,35 @@ a:hover{
 
 .team-modifiers{
   display: inline-block;
-  width: 100px;
+  width: 80px;
   padding: 5px;
   border-bottom: 1.5px solid blue;
+  text-align: center;
 }
 
 .team-names:hover, .team-modifiers:hover{
   border-bottom: 3px solid blue;
-  margin-bottom: -1.5px;
+  margin-bottom: -3px;
 }
 
 
 li{
   list-style-type: none;
+}
+
+.game-list-item{
+  margin: 5px;
+  padding: 10px;
+  display: inline-block;
+  background-color: white;
+  border: .5px solid blue;
+  border-radius: 5px;
+  width: 230px;
+  height: 180px;
+  vertical-align: top;
+}
+
+.game-list-item:hover{
+  box-shadow: 0 0 5px blue;
 }
 

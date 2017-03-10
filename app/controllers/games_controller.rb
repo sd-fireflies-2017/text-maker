@@ -1,5 +1,9 @@
 class GamesController < ApplicationController
 
+  def index
+    @games = current_user.upcoming_games
+  end
+
   def show
     @team = Team.find_by(id: params[:team_id])
     @game = Game.find_by(id: params[:id])
@@ -22,10 +26,6 @@ class GamesController < ApplicationController
       @team = Team.find_by(id: params[:team_id])
       render :new
     end
-  end
-
-  def index
-    @games = current_user.games.order(time: 'ASC')
   end
 
 

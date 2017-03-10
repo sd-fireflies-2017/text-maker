@@ -1,6 +1,8 @@
-<li>
+<li class="game-list-item">
   <%= link_to listitem.name, team_game_path(listitem.team, listitem) %>
   <p>Confirmed Players: <%= listitem.confirmed_players.count %> / <%= listitem.players_required %></p>
   <p><%= listitem.location %></p>
-  <p><%= listitem.time %></p>
+  <p><%= listitem.clean_time %></p>
+  <p><%= distance_of_time_in_words(listitem.time, DateTime.now).capitalize %> until game time!</p>
 </li>
+
