@@ -27,12 +27,18 @@ class PlayersController < ApplicationController
 
   def edit
     @player = Player.find_by(id: params[:id])
+    @team = Team.find_by(id: params[:team_id])
   end
 
   def update
+    @team = Team.find_by(id: params[:team_id])
     @player = Player.find_by(id: params[:id])
     if @player.update(player_params)
-      redirect_to @player
+      p params
+      @roster = Roster.find_or_initialize_by(team: @team, player: @player)
+      @roster.core = core?
+      @roster.save
+      redirect_to @team
     else
       render :edit
     end
