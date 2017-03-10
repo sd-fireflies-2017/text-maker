@@ -1,20 +1,33 @@
 class CreateGameMessages 
-def determine_response(phone_number, body)
-		# first determine if the client is a player or a user/captain
-		# if they are a player confirm or deny they will be attending a game
 
-		# if they are user determin appopriate status update
+	def initialize(phone_number, body)
+		@phone_number = set_phone(phone_number)
+		@body = body
+	end	
 
-
-		client = Player.find_by(phone_number: phone_number)
+	def determine_response
+		message = @body.split(" ")
 		
-		if client.nil?
-			client = User.find_by(phone_number: phone_number)
-		end
-
-
-
-		
-		
+		# client = message.first	
+		# client = determine_client(client, @phone_number, message)
+		client.call
 	end
+			
+	private 
+
+	def determine_client(client, phone_number, message)
+		if client.downcase.capitalize.constantize == User
+			CreateUserMessage.new(message)
+		else
+			CreatePlayerMessage.new(phone_number, message)
+		end
+	end
+
+
+	def set_phone(phone_number)
+		phone_number.gsub(/\D/, "").slice(1..-1)
+	end
+
+
 end
+
