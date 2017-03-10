@@ -5,12 +5,12 @@
 
 		<%= link_to "Edit Team", edit_team_path(@team), class: 'edit-team-link' %>
 
-		<%= link_to "Add Player to Team", new_team_player_path(@team), class: 'new-team-btn' %>
+		<%= link_to "Add Player", new_team_player_path(@team), class: 'new-team-btn' %>
 
-		<%= link_to "Add Game for Team", new_team_game_path(@team), class: 'new-team-btn btn-btn' %>
+		<%= link_to "Add Game", new_team_game_path(@team), class: 'new-team-btn btn-btn' %>
 
 	<div class="players-list-container">
-		<h2>Players</h2>
+		<h2>Players:</h2><br>
 		<ul>
 		<% @team.players.each do |player| %>
 			<li>
@@ -23,7 +23,7 @@
 	</div>
 
 	<div class="games-list-container">
-		<h2>Games</h2>
+		<h2><%= @team.name %>'s Games:</h2>
 		<ul>
 			<%= render partial: "games/listitem", collection: @games %>
 		</ul>

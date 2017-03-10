@@ -33,7 +33,7 @@ p{
 }
 
 .new-team-btn, .view-games-btn{
-  padding: 15px;
+  padding: 7px;
   background-color: #0275d8;
   color: white;
   border-radius: 5px;
@@ -47,8 +47,8 @@ p{
   vertical-align: middle;
   position: relative;
   display: inline-block;
-  width: 200px;
-  height: 60px;
+  width: 140px;
+  height: 40px;
   background-color: #0275d8;
   border-radius: 5px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -58,11 +58,11 @@ p{
 }
 
 .view-games-btn {
-  left: 40px;
+  left: 20px;
 }
 
 .btn-btn {
-  left: 40px;
+  left: 20px;
 }
 
 .new-team-btn::after, .view-games-btn::after {
@@ -91,10 +91,9 @@ p{
   opacity: 1;
 }
 
-/*a:hover{
+a:hover{
   text-decoration: none;
-  color: blue;
-}*/
+}
 
 .team-names{
   display: inline-block;
@@ -167,4 +166,9 @@ li{
 
 .edit-team-link{
   display: block;
+}
+
+.players-list-container {
+  margin-bottom: 60px;
+  margin-top: 0px;
 }
