@@ -3,7 +3,7 @@ class Game < ApplicationRecord
   has_many :players, through: :team
   has_one :captain, through: :team
   has_many :confirmations
-  has_many :responded_players, through: :confirmations
+  has_many :responded_players, through: :confirmations, source: :player
 
   validates :location, :time, :opposing_team, :team_id, :players_required, presence: true
   validate :check_full_team
@@ -53,5 +53,14 @@ class Game < ApplicationRecord
     time.strftime("%l:%M%P %A, %b %e")
   end
 
+  def details
+   "-"+ self.name + "\n" + " Location: #{location}" + "\n" + " Time: #{clean_time}" + "\n" + "\n"
+  end
+
+  def status
+    self.details
+    # players = confirmed_players.map(&:name).flatten.join(" ")
+    # players
+  end
 
 end
