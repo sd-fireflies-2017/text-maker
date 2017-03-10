@@ -13,6 +13,9 @@
 		<%= f.label :phone_number_with_area_code %>
     <%= f.text_field :phone_number %>
 
+    <%= f.label :core_player? %>
+    <%= f.check_box :core %>
+
 		<%= f.submit "Add Player" %>
 
 	<% end %>
@@ -21,6 +24,9 @@
   <%= form_for Roster.new, url: team_rosters_path do |f| %>
 
     <%= f.select :player_id, (current_user.players - @team.players).collect { |p| [ p.name, p.id ] }, include_blank: true %>
+
+    <%= f.label :core_player %>
+    <%= f.check_box :core %>
 
     <%= f.submit "Add Player" %>
 

@@ -6,15 +6,12 @@ class PlayersController < ApplicationController
   end
 
   def create
-    p params
-    p params[:team_id]
     @player = Player.new(player_params)
 
     params[:team_id] ? @team = Team.find_by(id: params[:team_id]) : @team = Team.find_by(id: params[:player][:team_ids])
 
-    p @player
     if @player.save
-      Roster.create(team: @team, player: @player)
+      Roster.create(team: @team, player: @player, core: core?)
       redirect_to @team, notice: 'Player was successfully created.'
     else
       render :new, errors: @player.errors.full_messages.join(", ")
@@ -71,6 +68,10 @@ class PlayersController < ApplicationController
 
   def player_params
     params.require(:player).permit(:name, :phone_number)
+  end
+
+  def core?
+    params[:player][:core] == 1 ? true : false
   end
 
 end

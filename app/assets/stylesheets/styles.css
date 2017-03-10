@@ -13,6 +13,11 @@ input[type=submit]:hover{
   box-shadow: 0 0 10px blue;
 }
 
+input[type=checkbox]{
+  display: block;
+  margin-bottom: 10px;
+}
+
 label{
   display: block;
   margin-top: 10px;
@@ -61,7 +66,7 @@ a:hover{
   text-align: center;
 }
 
-.team-names:hover, .team-modifiers:hover{
+.team-names:hover, .team-modifiers:hover, .core:hover{
   border-bottom: 3px solid blue;
   margin-bottom: -3px;
 }
@@ -87,3 +92,12 @@ li{
   box-shadow: 0 0 5px blue;
 }
 
+.core{
+  color: blue;
+  display: inline-block;
+  width: 80px;
+  padding: 5px;
+  border-bottom: 1.5px solid blue;
+  text-align: center;
+  margin-left: 5px;
+}

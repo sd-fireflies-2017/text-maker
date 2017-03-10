@@ -12,7 +12,7 @@
 		<ul>
 		<% @team.players.each do |player| %>
 			<li>
-				<%= link_to player.name, player, class: 'team-names' %>
+				<%= link_to player.name, player, class: 'team-names' %><span class="core"><%= Roster.find_by(player: player, team: @team).core ? 'alternate' : 'core' %></span>
 				<%= link_to "Edit", edit_team_player_path(player), class: 'team-modifiers' %>
 				<%= link_to "Remove", "/teams/#{params[:id]}/players/#{player.id}/remove", class: 'team-modifiers' %>
 			</li>
