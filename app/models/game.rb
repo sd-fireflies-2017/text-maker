@@ -44,5 +44,9 @@ class Game < ApplicationRecord
     all_players
   end
 
+  def full?
+    confirmed_players.count >= players_required
+  end
+
 
 end

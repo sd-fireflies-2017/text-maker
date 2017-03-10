@@ -1,7 +1,10 @@
 <div class="content">
 
-	<h1>Add a Player</h1>
+  <%= link_to "<< Back to Team", team_path(@team) %>
 
+	<h1>Add a Player to the team <%= @team.name %></h1>
+
+  <p>Enter a new one</p>
 	<%= form_for @player do |f| %>
 
 		<%= f.label :name %>
@@ -10,13 +13,12 @@
 		<%= f.label :phone_number_with_area_code %>
     <%= f.text_field :phone_number %>
 
-		<%= f.select :team_ids, current_user.teams.collect { |g| [ g.name, g.id ] }, include_blank: true %>
-
 		<%= f.submit "Add Player" %>
 
 	<% end %>
 ------------------------------------------------------------------
-  <%= form_for Roster.new do |f| %>
+<p>Or assign one you have already added</p>
+  <%= form_for Roster.new, url: team_rosters_path do |f| %>
 
     <%= f.select :player_id, (current_user.players - @team.players).collect { |p| [ p.name, p.id ] }, include_blank: true %>
 

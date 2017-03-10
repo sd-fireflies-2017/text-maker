@@ -10,6 +10,8 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
+    @team = Team.find_by(id: params[:id])
+    @games = @team.upcoming_games
   end
 
   # GET /teams/new
