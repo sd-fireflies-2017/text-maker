@@ -164,3 +164,7 @@ li{
   text-align: center;
   margin-left: 5px;
 }
+
+.edit-team-link{
+  display: block;
+}

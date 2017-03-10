@@ -1,6 +1,27 @@
-<h1>Editing Team</h1>
+<div class="content">
 
-<%= render 'form', team: @team %>
 
-<%= link_to 'Show', @team %> |
-<%= link_to 'Back', teams_path %>
+  <h1>Editing Team <%= @team.name %></h1>
+
+  <%= form_for @team do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :sport_type %>
+    <%= f.text_field :sport_type %>
+
+    <%= f.label :league_name %>
+    <%= f.text_field :league_name %>
+
+    <%= f.label "Default Location (Optional)" %>
+    <%= f.text_field :default_location %>
+
+    <%= f.label "Default Team Size (Optional)" %>
+    <%= f.text_field :default_required_players %>
+
+    <%= f.submit "Update" %>
+  <% end %>
+
+</div>
+

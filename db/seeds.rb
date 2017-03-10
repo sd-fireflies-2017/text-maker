@@ -18,19 +18,27 @@ phone_numbers = %w(1 2 3 4 5 6 7 8 9 0)
 2.times {User.create!(name: Faker::StarWars.character,
 											email: Faker::Internet.email,
 											password: "password",
-											password_confirmation: "password")
+											password_confirmation: "password",
+											phone_number: Faker::PhoneNumber.cell_phone)
 }
 
 2.times {User.create!(name: Faker::HarryPotter.character,
 											email: Faker::Internet.email,
 											password: "password",
-											password_confirmation: "password")
+											password_confirmation: "password",
+											phone_number: Faker::PhoneNumber.cell_phone)
 }
+
+User.create!(name: "jordan",
+							email: "jordan@jordan.com",
+							password: "password",
+							password_confirmation: "password",
+							phone_number: "(760)5791733")
 
 7.times {Team.create!(name: Faker::Team.name,
 											sport_type: Faker::Team.sport,
 											league_name: Faker::Team.creature,
-											user_id: [1,2,3,4].sample)
+											user_id: [1,2,3,4,5].sample)
 
 
 }
@@ -48,11 +56,13 @@ phone_numbers = %w(1 2 3 4 5 6 7 8 9 0)
 													)
 }
 
-77.times {Roster.create!(team_id: rand(1..7),
-													player_id: rand(1..77),
+Player.create!(name: "jordan", phone_number: "(760)5791733")
+
+78.times {Roster.create!(team_id: rand(1..7),
+													player_id: rand(1..78),
 													core: [true,true,true,false].sample
 													)
 }
 
 
-User.create(email: 'david@gmail.com', name: 'david', password: 'password')
+User.create(email: 'david@gmail.com', name: 'david', password: 'password', phone_number: Faker::PhoneNumber.cell_phone)
