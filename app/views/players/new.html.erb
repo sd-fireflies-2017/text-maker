@@ -2,9 +2,9 @@
 
   <%= link_to "<< Back to Team", team_path(@team) %>
 
-	<h1>Add a Player to the team <%= @team.name %></h1>
+	<h1>Add a Player to <%= @team.name %></h1><br>
 
-  <p>Enter a new one</p>
+  <p>Enter a new player OR select existing player from drop-down list below.</p>
 	<%= form_for [@team, @player] do |f| %>
 
 		<%= f.label :name %>
@@ -19,8 +19,8 @@
 		<%= f.submit "Add Player" %>
 
 	<% end %>
-------------------------------------------------------------------
-<p>Or assign one you have already added</p>
+<hr>
+<p>Select existing player:</p>
   <%= form_for Roster.new, url: team_rosters_path do |f| %>
 
     <%= f.select :player_id, (current_user.players - @team.players).collect { |p| [ p.name, p.id ] }, include_blank: true %>
@@ -31,6 +31,5 @@
     <%= f.submit "Add Player" %>
 
   <% end %>
-
 
 </div>
