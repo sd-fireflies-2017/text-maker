@@ -15,6 +15,7 @@ Roster.delete_all
 
 phone_numbers = %w(1 2 3 4 5 6 7 8 9 0)
 
+
 2.times {User.create!(name: Faker::StarWars.character,
 											email: Faker::Internet.email,
 											password: "password",
@@ -52,8 +53,7 @@ User.create!(name: "jordan",
 )}
 
 77.times {Player.create!(name: Faker::Name.name,
-													phone_number: phone_numbers.shuffle
-													)
+													phone_number: phone_numbers.shuffle)
 }
 
 Player.create!(name: "jordan", phone_number: "(760)5791733")
@@ -65,4 +65,20 @@ Player.create!(name: "jordan", phone_number: "(760)5791733")
 }
 
 
-User.create(email: 'david@gmail.com', name: 'david', password: 'password', phone_number: Faker::PhoneNumber.cell_phone)
+codes = []
+100.times {|i|codes << Code.create(value: i+99)}
+
+i = 0
+until i > 22
+	codes[i].game_id = i+1
+	codes[i].save
+	i += 1
+end
+
+
+
+
+
+
+
+
