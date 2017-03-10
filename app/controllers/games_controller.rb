@@ -43,7 +43,8 @@ class GamesController < ApplicationController
       end
     end
     @game = Game.find_by(id: params[:game_id])
-    redirect_to @game
+    @team = Team.find_by(id: params[:team_id])
+    redirect_to team_game_path(@team, @game), notice: "Players have been notified"
   end
 
 
