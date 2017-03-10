@@ -64,6 +64,7 @@ Player.create!(name: "jordan", phone_number: "(760)5791733")
 													)
 }
 
+
 codes = []
 100.times {|i|codes << Code.create(value: i+99)}
 
@@ -73,6 +74,9 @@ until i > 22
 	codes[i].save
 	i += 1
 end
+
+
+
 
 
 

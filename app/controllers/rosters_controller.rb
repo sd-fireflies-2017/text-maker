@@ -21,7 +21,7 @@ class RostersController < ApplicationController
   private
 
   def core?
-    params[:roster][:core] == 1 ? 'true' : 'false'
+    params[:roster][:core] == '1' ? 'true' : 'false'
   end
 
 end

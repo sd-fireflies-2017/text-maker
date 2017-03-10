@@ -6,6 +6,9 @@ class PlayersController < ApplicationController
   end
 
   def create
+    p params
+    p core?
+
     @player = Player.new(player_params)
 
     params[:team_id] ? @team = Team.find_by(id: params[:team_id]) : @team = Team.find_by(id: params[:player][:team_ids])
@@ -81,7 +84,7 @@ class PlayersController < ApplicationController
   end
 
   def core?
-    params[:player][:core] == 1 ? true : false
+    params[:player][:core] == '1' ? 'true' : 'false'
   end
 
 end

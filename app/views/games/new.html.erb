@@ -5,7 +5,7 @@
 	<%= form_for [@team, @game], url: team_games_path do |f| %>
 
 		<%= f.label :location %>
-		<%= f.text_field :location %>
+		<%= f.text_field :location, value: @team.default_location %>
 
 		<%= f.label :time %>
 		<%= f.datetime_select :time, :ampm => true, :minute_step => 15 %>
@@ -17,7 +17,7 @@
 		<%= f.text_field :opposing_team %>
 
 		<%= f.label :players_required %>
-		<%= f.text_field :players_required %>
+		<%= f.text_field :players_required, value: @team.default_required_players %>
 
 		<%= f.submit "Submit" %>
 

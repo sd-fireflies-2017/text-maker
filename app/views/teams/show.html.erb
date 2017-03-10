@@ -3,17 +3,19 @@
 
 	<h1><%= @team.name %></h1>
 
+		<%= link_to "Edit Team", edit_team_path(@team), class: 'edit-team-link' %>
+
 		<%= link_to "Add Player to Team", new_team_player_path(@team), class: 'new-team-btn' %>
 
-		<%= link_to "Add Game for Team", new_team_game_path(@team), class: 'new-team-btn' %>
+		<%= link_to "Add Game for Team", new_team_game_path(@team), class: 'new-team-btn btn-btn' %>
 
 	<div class="players-list-container">
 		<h2>Players</h2>
 		<ul>
 		<% @team.players.each do |player| %>
 			<li>
-				<%= link_to player.name, player, class: 'team-names' %><span class="core"><%= link_to Roster.find_by(player: player, team: @team).core ? 'alternate' : 'core', "/teams/#{params[:id]}/players/#{player.id}/core" %></span>
-				<%= link_to "Edit", edit_team_player_path(player), class: 'team-modifiers' %>
+				<%= link_to player.name, player, class: 'team-names' %><span class="core"><%= link_to Roster.find_by(player: player, team: @team).core ? 'core' : 'alternate', "/teams/#{params[:id]}/players/#{player.id}/core" %></span>
+				<%= link_to "Edit", edit_team_player_path(@team, player), class: 'team-modifiers' %>
 				<%= link_to "Remove", "/teams/#{params[:id]}/players/#{player.id}/remove", class: 'team-modifiers' %>
 			</li>
 		<% end %>
