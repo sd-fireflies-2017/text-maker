@@ -49,5 +49,7 @@ phone_numbers = %w(1 2 3 4 5 6 7 8 9 0)
 }
 
 77.times {Roster.create!(team_id: rand(1..7),
-													player_id: rand(1..77))
+													player_id: rand(1..77),
+													core: [true,true,true,false].sample
+													)
 }

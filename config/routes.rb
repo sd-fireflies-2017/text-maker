@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get "/games/:game_id/players/:player_id/decline", to: 'players#decline'
   get "/games/:game_id/players/:player_id/confirm", to: 'players#confirm'
+  get "/teams/:team_id/players/:player_id/core", to: 'players#core'
 
   get "teams/:team_id/players/:id/remove", to: 'players#remove'
 
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
   	resources :players
   end
 
-  
+
   get 'twilio/voice' => 'twilio#trigger_sms_alerts'
   post 'twilio/voice' => 'twilio#response_message'
 

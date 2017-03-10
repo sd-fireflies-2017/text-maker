@@ -1,5 +1,5 @@
 <div class="content">
-
+<%= link_to "<< Back to Team", team_path(@game.team) %>
 	<h1><%= @game.name %></h1>
 	<ul>
 		<li><%= @game.location %></li>
@@ -10,7 +10,7 @@
 	<ul>
 		<% @game.confirmed_players.each do |player| %>
 			<li>
-				<span class='team-names'><%= link_to player.name, player %></span>
+				<span class='team-names'><%= link_to player.name, player %></span><span class="core"><%= Roster.find_by(player: player, team: @game.team).core ? 'alternate' : 'core' %></span>
 				<span class='team-modifiers'><%= link_to "Decline", "/games/#{@game.id}/players/#{player.id}/decline" %></span>
 			</li>
 		<% end %>
@@ -20,7 +20,7 @@
 	<ul>
 		<% @game.players_without_confirmations.each do |player| %>
 			<li>
-				<span class='team-names'><%= link_to player.name, player %></span>
+				<span class='team-names'><%= link_to player.name, player %></span><span class="core"><%= Roster.find_by(player: player, team: @game.team).core ? 'alternate' : 'core' %></span>
 				<span class='team-modifiers'><%= link_to "Confirm", "/games/#{@game.id}/players/#{player.id}/confirm" %></span>
 				<span class='team-modifiers'><%= link_to "Decline", "/games/#{@game.id}/players/#{player.id}/decline" %></span>
 			</li>
@@ -31,7 +31,7 @@
 	<ul>
 		<% @game.declined_players.each do |player| %>
 			<li>
-				<span class='team-names'><%= link_to player.name, player %></span>
+				<span class='team-names'><%= link_to player.name, player %></span><span class="core"><%= Roster.find_by(player: player, team: @game.team).core ? 'alternate' : 'core' %></span>
 				<span class='team-modifiers'><%= link_to "Confirm", "/games/#{@game.id}/players/#{player.id}/confirm" %></span>
 			</li>
 		<% end %>
