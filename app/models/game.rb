@@ -41,6 +41,7 @@ class Game < ApplicationRecord
     all_players = self.players
     all_players -= confirmed_players
     all_players -= declined_players
+    p all_players
     all_players
   end
 

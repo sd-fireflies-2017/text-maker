@@ -5,13 +5,16 @@
 	<h1>Add a Player to the team <%= @team.name %></h1>
 
   <p>Enter a new one</p>
-	<%= form_for @player do |f| %>
+	<%= form_for [@team, @player] do |f| %>
 
 		<%= f.label :name %>
 		<%= f.text_field :name %>
 
 		<%= f.label :phone_number_with_area_code %>
     <%= f.text_field :phone_number %>
+
+    <%= f.label :core_player? %>
+    <%= f.check_box :core %>
 
 		<%= f.submit "Add Player" %>
 
@@ -21,6 +24,9 @@
   <%= form_for Roster.new, url: team_rosters_path do |f| %>
 
     <%= f.select :player_id, (current_user.players - @team.players).collect { |p| [ p.name, p.id ] }, include_blank: true %>
+
+    <%= f.label :core_player %>
+    <%= f.check_box :core %>
 
     <%= f.submit "Add Player" %>
 
