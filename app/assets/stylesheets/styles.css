@@ -114,7 +114,6 @@ a:hover{
 .team-names:hover, .team-modifiers:hover{
   text-decoration: none;
   border-bottom: 3px solid #0275d8;
-/*  border-bottom: 3px solid blue;*/
   margin-bottom: -3px;
 }
 
@@ -168,7 +167,6 @@ li{
   display: block;
 }
 
-.players-list-container {
+.players-list-container, .teams-list-container {
   margin-bottom: 60px;
-  margin-top: 0px;
 }
