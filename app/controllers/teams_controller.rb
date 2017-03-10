@@ -21,6 +21,7 @@ class TeamsController < ApplicationController
 
   # GET /teams/1/edit
   def edit
+    @team = Team.find_by(id: params[:id])
   end
 
   # POST /teams
