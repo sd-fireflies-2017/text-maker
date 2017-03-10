@@ -2,7 +2,7 @@ class RostersController < ApplicationController
 
   def create
     @team = Team.find_by(id: params[:team_id])
-    @roster = Roster.new(team_id: params[:team_id], player_id: params[:roster][:player_id])
+    @roster = Roster.new(team_id: params[:team_id], player_id: params[:roster][:player_id], core: core?)
     if @roster.save
       redirect_to @team, notice: 'Player was successfully added.'
     else
@@ -17,5 +17,11 @@ class RostersController < ApplicationController
     redirect_to @team
   end
 
+
+  private
+
+  def core?
+    params[:roster][:core] == 1 ? 'true' : 'false'
+  end
 
 end
