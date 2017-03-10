@@ -17,6 +17,10 @@
     <div class="form-group">
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
+      <br>
+    <div class="form-group">
+      <%= f.label :phone_number %>
+      <%= f.text_field :phone_number, class: 'form-control' %>
     </div><br><br>
      <%= f.submit 'Sign up', :class => 'button right' %>
   <% end %>
