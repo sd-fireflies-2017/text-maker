@@ -1,3 +1,5 @@
+require 'rake'
+
 class GamesController < ApplicationController
 
   def index
@@ -29,7 +31,17 @@ class GamesController < ApplicationController
   end
 
   def notify
-    Rake::Task['players:message'].invoke
+    Team.all.each do |team|
+      team.games.each do |game|
+        next if game.full?
+        game.players_without_confirmations.each do |player|
+          if Roster.find_by(team: team, player: player).core == true
+            # if player.name == 'jordan'
+              CreateTwilioClient.new(player.phone_number, game.details).call
+            end
+        end
+      end
+    end
     @game = Game.find_by(id: params[:game_id])
     redirect_to @game
   end
