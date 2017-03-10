@@ -1,7 +1,6 @@
 namespace :players do
   desc "Sends out confirmation message to players"
   task message: :environment do
-  	uncomfirmed = []
   	Team.all.each do |team|
 	  	team.games.each do |game|
 	  		next if game.full?

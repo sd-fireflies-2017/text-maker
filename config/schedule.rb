@@ -19,7 +19,7 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 5.minutes do
+every 1.day, :at => '4:30 pm' 
   # specify the task name as a string
   rake 'players:message'
 end
