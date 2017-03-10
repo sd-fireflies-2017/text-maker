@@ -7,10 +7,10 @@ class CreateGameMessages
 
 	def determine_response
 		message = @body.split(" ")
-		
+		# client = User
 		# client = message.first	
 		# client = determine_client(client, @phone_number, message)
-		client.call
+		# client.call
 	end
 			
 	private 

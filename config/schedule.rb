@@ -18,3 +18,17 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+
+every 1.day, :at => '4:30 pm' 
+  rake 'players:message'
+end
+
+# every day three days before event at 1:30 do
+	#send out confirmation message 
+
+#end
+
+# 30 minutes before event do
+	#send out last minute message reminder
+
+#end
