@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20170309033305) do
   create_table "rosters", force: :cascade do |t|
     t.integer  "team_id",    null: false
     t.integer  "player_id",  null: false
-    t.boolean  "core",       null: false
+    t.boolean  "core"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
