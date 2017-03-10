@@ -5,7 +5,7 @@
 	<h1>Add a Player to the team <%= @team.name %></h1>
 
   <p>Enter a new one</p>
-	<%= form_for @player do |f| %>
+	<%= form_for [@team, @player] do |f| %>
 
 		<%= f.label :name %>
 		<%= f.text_field :name %>

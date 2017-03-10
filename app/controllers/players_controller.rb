@@ -6,10 +6,16 @@ class PlayersController < ApplicationController
   end
 
   def create
+    p params
+    p params[:team_id]
     @player = Player.new(player_params)
+
+    params[:team_id] ? @team = Team.find_by(id: params[:team_id]) : @team = Team.find_by(id: params[:player][:team_ids])
+
+    p @player
     if @player.save
-      Roster.create(team_id: params[:player][:team_ids], player: @player)
-      redirect_to @player, notice: 'Player was successfully created.'
+      Roster.create(team: @team, player: @player)
+      redirect_to @team, notice: 'Player was successfully created.'
     else
       render :new, errors: @player.errors.full_messages.join(", ")
     end
