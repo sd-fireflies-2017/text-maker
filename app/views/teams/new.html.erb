@@ -3,7 +3,7 @@
 	<h1>Add a new Team</h1>
 
 	<%= form_for @team do |f| %>
-		
+
 		<%= f.label :name %>
 		<%= f.text_field :name %>
 
@@ -12,6 +12,12 @@
 
 		<%= f.label :league_name %>
 		<%= f.text_field :league_name %>
+
+		<%= f.label "Default Location (Optional)" %>
+		<%= f.text_field :default_location %>
+
+		<%= f.label "Default Team Size (Optional)" %>
+		<%= f.text_field :default_required_players %>
 
 		<%= f.submit "Submit" %>
 	<% end %>

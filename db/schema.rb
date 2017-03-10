@@ -50,12 +50,14 @@ ActiveRecord::Schema.define(version: 20170309033305) do
   end
 
   create_table "teams", force: :cascade do |t|
-    t.string   "name",        null: false
-    t.string   "sport_type",  null: false
-    t.string   "league_name", null: false
-    t.integer  "user_id",     null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "name",                     null: false
+    t.string   "sport_type",               null: false
+    t.string   "league_name",              null: false
+    t.integer  "user_id",                  null: false
+    t.string   "default_location"
+    t.integer  "default_required_players"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "users", force: :cascade do |t|
