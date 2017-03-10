@@ -29,7 +29,9 @@ class GamesController < ApplicationController
   end
 
   def notify
-    Rake::Task[''].invoke
+    Rake::Task['players:message'].invoke
+    @game = Game.find_by(id: params[:game_id])
+    redirect_to @game
   end
 
 

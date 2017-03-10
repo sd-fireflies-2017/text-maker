@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   end
 
 
-  get 'twilio/voice' => 'twilio#trigger_sms_alerts'
+  # get 'twilio/voice' => 'twilio#trigger_sms_alerts'
   post 'twilio/voice' => 'twilio#response_message'
 
 
