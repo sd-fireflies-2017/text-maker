@@ -4,7 +4,6 @@ class Game < ApplicationRecord
   has_one :captain, through: :team
   has_many :confirmations
   has_many :responded_players, through: :confirmations, source: :player
-  has_one :code 
 
   validates :location, :time, :opposing_team, :team_id, :players_required, presence: true
   validate :check_full_team
@@ -59,10 +58,6 @@ class Game < ApplicationRecord
     - #{self.name}
     Location: #{location}
     Time: #{clean_time}
-    Code: #{code.value}
-    Respond back with
-    YES or NO and code
-    ex: yes 123
     msg
     message
   end

@@ -1,3 +1,5 @@
+require 'rake'
+
 class GamesController < ApplicationController
 
   def index
@@ -26,6 +28,23 @@ class GamesController < ApplicationController
       @team = Team.find_by(id: params[:team_id])
       render :new
     end
+  end
+
+  def notify
+    Team.all.each do |team|
+      team.games.each do |game|
+        next if game.full?
+        game.players_without_confirmations.each do |player|
+          if Roster.find_by(team: team, player: player).core == true
+            # if player.name == 'jordan'
+              CreateTwilioClient.new(player.phone_number, game.details).call
+            end
+        end
+      end
+    end
+    @game = Game.find_by(id: params[:game_id])
+    @team = Team.find_by(id: params[:team_id])
+    redirect_to team_game_path(@team, @game), notice: "Players have been notified"
   end
 
 
