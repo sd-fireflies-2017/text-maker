@@ -65,4 +65,4 @@ Player.create!(name: "jordan", phone_number: "(760)5791733")
 }
 
 
-User.create(email: 'david@gmail.com', name: 'david', password: 'password')
+User.create(email: 'david@gmail.com', name: 'david', password: 'password', phone_number: Faker::PhoneNumber.cell_phone)

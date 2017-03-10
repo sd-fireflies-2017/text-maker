@@ -84,7 +84,7 @@ class PlayersController < ApplicationController
   end
 
   def core?
-    params[:player][:core] == 1 ? 'false' : 'true'
+    params[:player][:core] == '1' ? 'true' : 'false'
   end
 
 end
