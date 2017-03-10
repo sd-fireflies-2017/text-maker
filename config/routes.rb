@@ -17,4 +17,10 @@ Rails.application.routes.draw do
   	resources :players
   end
 
+  
+  get 'twilio/voice' => 'twilio#trigger_sms_alerts'
+  post 'twilio/voice' => 'twilio#response_message'
+
+
+
 end

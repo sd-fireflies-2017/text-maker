@@ -6,6 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+
 module TeamTracker
   class Application < Rails::Application
 
@@ -25,3 +26,4 @@ module TeamTracker
     # -- all .rb files in that directory are automatically loaded.
   end
 end
+
