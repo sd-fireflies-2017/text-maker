@@ -7,14 +7,22 @@ Rails.application.routes.draw do
   resources :players
 
   resources :games, only: [:index]
-  resources :rosters, only: [:create]
 
   get "/games/:game_id/players/:player_id/decline", to: 'players#decline'
   get "/games/:game_id/players/:player_id/confirm", to: 'players#confirm'
 
+  get "teams/:team_id/players/:id/remove", to: 'players#remove'
+
   resources :teams do
-  	resources :games
+    resources :games
+    resources :rosters, only: [:create, :delete]
   	resources :players
   end
+
+  
+  get 'twilio/voice' => 'twilio#trigger_sms_alerts'
+  post 'twilio/voice' => 'twilio#response_message'
+
+
 
 end

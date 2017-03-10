@@ -1,5 +1,5 @@
 <div class="content">
-
+	<%= link_to "<< Back to Team", team_path(@team) %>
 	<h1>Add a new Game for <%= @team.name %></h1>
 
 	<%= form_for [@team, @game], url: team_games_path do |f| %>
