@@ -1,19 +1,20 @@
 <div class="content">
 
+
 	<h1><%= @team.name %></h1>
 
+		<%= link_to "Add Player to Team", new_team_player_path(@team), class: 'new-team-btn' %>
 
-		<%= link_to "Add Player to Team", new_team_player_path(@team) %>
-
-		<%= link_to "Add Game for Team", new_team_game_path(@team) %>
+		<%= link_to "Add Game for Team", new_team_game_path(@team), class: 'new-team-btn' %>
 
 	<div class="players-list-container">
 		<h2>Players</h2>
 		<ul>
 		<% @team.players.each do |player| %>
 			<li>
-				<%= link_to player.name, player %>
-				<%= link_to "Remove", "DELETE ROSTER" %>
+				<%= link_to player.name, player, class: 'team-names' %>
+				<%= link_to "Edit", edit_team_player_path(player), class: 'team-modifiers' %>
+				<%= link_to "Remove", "/teams/#{params[:id]}/players/#{player.id}/remove", class: 'team-modifiers' %>
 			</li>
 		<% end %>
 		</ul>
@@ -22,13 +23,7 @@
 	<div class="games-list-container">
 		<h2>Games</h2>
 		<ul>
-			<% @team.games.each do |game| %>
-				<li>
-					<%= link_to game.name, team_game_path(game) %>
-					<p><%= game.location %></p>
-					<p><%= game.time %></p>
-				</li>
-			<% end %>
+			<%= render partial: "games/listitem", collection: @games %>
 		</ul>
 	</div>
 </div>

@@ -44,5 +44,13 @@ class Game < ApplicationRecord
     all_players
   end
 
+  def full?
+    confirmed_players.count >= players_required
+  end
+
+  def clean_time
+    time.strftime("%l:%M%P %A, %b %e")
+  end
+
 
 end

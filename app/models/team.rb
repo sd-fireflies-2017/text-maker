@@ -11,4 +11,8 @@ class Team < ApplicationRecord
     current_user.players - self.players
   end
 
+  def upcoming_games
+     games.where("time > ?", Date.today).order(time: 'ASC')
+  end
+
 end
