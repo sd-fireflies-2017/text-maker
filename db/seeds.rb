@@ -13,10 +13,11 @@ Roster.delete_all
 # user = CreateAdminService.new.call
 # puts 'CREATED ADMIN USER: ' << user.email
 
+phone_numbers = %w(1 2 3 4 5 6 7 8 9 0)
 
 2.times {User.create!(name: Faker::StarWars.character,
 											email: Faker::Internet.email,
-											password: "password",	
+											password: "password",
 											password_confirmation: "password")
 }
 
@@ -26,7 +27,7 @@ Roster.delete_all
 											password_confirmation: "password")
 }
 
-7.times {Team.create!(name: Faker::Team.name, 
+7.times {Team.create!(name: Faker::Team.name,
 											sport_type: Faker::Team.sport,
 											league_name: Faker::Team.creature,
 											user_id: [1,2,3,4].sample)
@@ -36,13 +37,15 @@ Roster.delete_all
 
 23.times {Game.create!(location: Faker::GameOfThrones.city,
 												time: Faker::Time.forward(23, :morning),
-												home_team: Faker::Boolean.boolean(0.2),
+												home_team: ['true','false'].sample,
 												opposing_team: Faker::Educator.university,
-												team_id: rand(1..7)
+												team_id: rand(1..7),
+												players_required: rand(4..8)
 )}
 
 77.times {Player.create!(name: Faker::Name.name,
-													phone_number: Faker::PhoneNumber.cell_phone)
+													phone_number: phone_numbers.shuffle
+													)
 }
 
 77.times {Roster.create!(team_id: rand(1..7),

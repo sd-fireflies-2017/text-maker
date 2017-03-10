@@ -24,13 +24,14 @@ ActiveRecord::Schema.define(version: 20170309033305) do
   end
 
   create_table "games", force: :cascade do |t|
-    t.string   "location",      null: false
-    t.datetime "time",          null: false
-    t.boolean  "home_team",     null: false
-    t.string   "opposing_team", null: false
-    t.integer  "team_id",       null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "location",         null: false
+    t.datetime "time",             null: false
+    t.boolean  "home_team",        null: false
+    t.string   "opposing_team",    null: false
+    t.integer  "team_id",          null: false
+    t.integer  "players_required", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "players", force: :cascade do |t|
