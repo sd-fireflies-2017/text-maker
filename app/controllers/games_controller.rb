@@ -28,6 +28,10 @@ class GamesController < ApplicationController
     end
   end
 
+  def notify
+    Rake::Task[''].invoke
+  end
+
 
   private
 

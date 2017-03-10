@@ -73,15 +73,15 @@ class PlayersController < ApplicationController
     redirect_to @team
   end
 
-  def core
-    @player = Player.find_by(id: params[:player_id])
-    @team = Team.find_by(id: params[:team_id])
-    @roster = Roster.find_by(team: @team, player: @player)
-    @roster.core = !@roster.core
-    @roster.save
+  # def core
+  #   @player = Player.find_by(id: params[:player_id])
+  #   @team = Team.find_by(id: params[:team_id])
+  #   @roster = Roster.find_by(team: @team, player: @player)
+  #   @roster.core = !@roster.core
+  #   @roster.save
 
-    redirect_to @team
-  end
+  #   redirect_to @team
+  # end
 
   private
 

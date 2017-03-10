@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   get "teams/:team_id/players/:id/remove", to: 'players#remove'
 
+  get "/teams/:team_id/games/:@game_id/notify", to: 'games#notify'
+
   resources :teams do
     resources :games
     resources :rosters, only: [:create, :delete]

@@ -6,6 +6,8 @@
 		<li><%= @game.clean_time %></li>
 	</ul>
 
+	<%= link_to "Notify Players", "/teams/#{@team.id}/games/#{@game.id}/notify" %>
+
 	<h4>Confirmed Players <%= @game.confirmed_players.count %> / <%= @game.players_required %></h2>
 	<ul>
 		<% @game.confirmed_players.each do |player| %>
