@@ -49,5 +49,3 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
-
-
